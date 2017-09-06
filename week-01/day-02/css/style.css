@@ -1,0 +1,79 @@
+body {
+    margin: 0px;
+    font-family: 'Inconsolata', monospace;
+    background-image: url(../img/topography.png);
+    background-repeat: repeat;
+}
+
+nav {
+    width: 100%;
+    padding: 0px 10% 65px 10%;
+    background: #333333;
+    position: fixed;
+    top: 0;
+}
+
+main {
+    margin: 10%;
+}
+
+h1,
+h2,
+h3,
+dt {
+    font-family: 'PT Mono', monospace;
+}
+
+h1 {
+    font-size: 46px;
+    font-weight: 700;
+}
+
+a,
+h3 {
+    color: #ff0099;
+}
+
+h2 {
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.separator {
+    text-align: center;
+    margin: 50px 0px 30px 0px;
+}
+
+
+dt {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+dd {
+    font-size: 12px;
+    margin: 10px 0px 10px 0px;
+}
+
+p {
+    font-size: 16px;
+}
+
+ul {
+    position: fixed;
+    right: 10%;
+    list-style: none;
+}
+
+li {
+    display: inline;
+    padding: 15px;
+}
+
+.logo {
+    position: fixed;
+    top: 10px;
+    left: 10%;
+}
