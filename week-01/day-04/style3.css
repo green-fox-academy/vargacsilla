@@ -11,4 +11,6 @@ table {
   width: 350px;
 }
 
-
+body table:nth-of-type(2) {
+  background: #A9E6E6;
+}
