@@ -1,0 +1,14 @@
+table {
+  background: #E67676;
+  border: solid 15px #4285F4;
+  border-collapse: collapse;  
+  color: white;
+  font-family: arial, sans-serif;
+  font-size: 36px;  
+  height: 250px;
+  margin: 5px;
+  text-align: center;
+  width: 350px;
+}
+
+
