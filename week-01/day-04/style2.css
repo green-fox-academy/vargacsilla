@@ -1,0 +1,30 @@
+table {
+  border: solid 15px #4285F4;
+  border-collapse: collapse;  
+  color: white;
+  font-family: arial, sans-serif;
+  font-size: 36px;  
+  height: 510px;
+  text-align: center;
+  width: 350px;
+}
+
+tr {
+  height: 0.4em;
+}
+
+tr:nth-of-type(1) {
+  background: #E67676;
+}
+
+tr:nth-of-type(2) {
+  background: #F2F062;
+}
+
+tr:nth-of-type(3) {
+  background: #A9E6E6;
+}
+
+tr:nth-of-type(4) {
+  background: #7692E4;
+}
