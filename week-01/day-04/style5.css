@@ -1,6 +1,7 @@
 body {
   font-family: 'Merriweather', serif;
   font-weight: 400;
+  font-size: 12px;
 }
 
 p {
@@ -8,13 +9,32 @@ p {
   width: 500px;
 }
 
-
+p,
+ul {
+  line-height: 1.5em;
+}
 
 h1 {
   color: orangered;
-  font-weight: 700;
 }
 
 h2 {
   color: blueviolet;
+}
+
+ul {
+  list-style: square;
+}
+
+ol {
+  list-style: upper-roman;
+}
+
+ol li {
+  text-decoration: underline;
+  color: palevioletred;
+}
+
+ol li:last-child {
+  color: black;
 }
