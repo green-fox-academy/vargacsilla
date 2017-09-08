@@ -1,32 +1,64 @@
 body {
   box-sizing: border-box;
   margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
   width: 80%;
-  background-color: red;
+  background-color: #cecccc;
   margin: 0 auto;
+  border-radius: 5px;
 }
 
 div {
   box-sizing: border-box;
   display: inline-block;
   width:100%;
+  /*padding: 0px 10px 0px 10px;*/
   margin: 0px 0px 10px 0px;
+  /*float: left;*/
+}
+
+h1 {
+  padding: 10px 0px 0px 10px;
+}
+
+input {
+  border-radius: 3px;
+  width: 100%;
+}
+
+input[type="radio"] {
+  width: auto;
+}
+
+input[id="birth"]{
+  width: 50px;
+}
+
+/*div[class~="half"] {
+  float: left;
+}*/
+
+.input_half {
+  width: 50%;
+  padding: 10px;
   float: left;
 }
 
-.input_half {
-  background-color: yellow;
-  width: 49.6%;
-  padding: 20px;
+div.small {
+  padding: 0px 10px 0px 0px;
 }
 
 .input_full {
     background-color: green;
     width: 100%;
     padding: 20px;
+}
+
+.fontos {
+
 }
 
 
