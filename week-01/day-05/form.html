@@ -11,16 +11,27 @@
       </header>
       <form>
         <div class="input_half">
-          <p>Személyes adatok</p>
+          <h2>Személyes adatok</h2>
+          <label class="fontos" for="tel">Név</label><br />
+          <input type="text" id="nev" name="name"><br />
           <div class="input_half small">
-            <p>születési év</p>    
+            <label for="birth">Születési éved</label><br />
+            <input type="text" id="birth" name="year_of_birth" placeholder="pl.1991"><br />
           </div>
           <div class="input_half small">
-            <p>nem</p>    
+            <p>Nemed</p>
+            <input type="radio" id="female" name="gender">
+            <label for="female">nő</label>
+            <input type="radio" id="male" name="gender">
+            <label for="male">férfi</label>
           </div>
+          <p>Milyen márkákat szeretsz?</p>
+          <input type="checkbox" id="adidas" name="brands">
+          <label for="adidas">Adidas</label>
+          <p>Többet is választhatsz!</p>
         </div>
         <div class="input_half">
-          <p>Kapcsolat</p>
+          <h2>Kapcsolat</h2>
           
           <label class="fontos" for="tel">Telefonszám</label><br />
           <input type="tel" id="tel" name="tel_num" placeholder="+36 -- --- ----"><br />
@@ -34,7 +45,12 @@
           <label for="twitter">Twitter profilod</label><br/>
           <input type="url" id="twitter" name="twitter_account" placeholder="http://twitter.com/..."><br/>
 
-          <label for="haz">Milyen házban laksz?</label><br/>
+          <p>Milyen házban laksz?</p>
+          <select placeholder="Válassz típust!">
+              <option>kicsi</option>
+              <option>közepes</option>
+              <option>nagy</option>
+            </select>
           <input type="selector" id="haz" name="home" placeholder="Válassz típust!">
 
         </div>
