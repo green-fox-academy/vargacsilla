@@ -1,5 +1,32 @@
-/* 1 - BASE FORM STYLES */
+body {
+  box-sizing: border-box;
+  margin: 0px;
+}
 
+main {
+  width: 80%;
+  background-color: red;
+  margin: 0 auto;
+}
 
+div {
+  box-sizing: border-box;
+  display: inline-block;
+  width:100%;
+  margin: 0px 0px 10px 0px;
+  float: left;
+}
+
+.input_half {
+  background-color: yellow;
+  width: 49.6%;
+  padding: 20px;
+}
+
+.input_full {
+    background-color: green;
+    width: 100%;
+    padding: 20px;
+}
 
 
