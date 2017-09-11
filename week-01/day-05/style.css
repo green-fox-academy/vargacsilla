@@ -1,3 +1,5 @@
+/* CONTAINER típusú elemek */
+
 body {
   box-sizing: border-box;
   margin: 0px;
@@ -18,10 +20,43 @@ div {
   box-sizing: border-box;
   display: inline-block;
   width:100%;
-  /*padding: 0px 10px 0px 10px;*/
   margin: 0px 0px 10px 0px;
-  /*float: left;*/
 }
+
+div.small {
+  padding: 0px 10px 0px 0px;
+}
+
+/* INPUT elemek*/
+
+input,
+select {
+  border-radius: 3px;
+  width: 100%;
+}
+
+.input_half {
+  width: 50%;
+  padding: 10px;
+  float: left;
+}
+
+.input_full {
+  background-color: green;
+  width: 100%;
+  padding: 20px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+}
+
+input[id="birth"]{
+  width: 50px;
+}
+
+/*SZÖVEG típusú elemek*/
 
 h1 {
   padding: 10px 0px 0px 10px;
@@ -34,43 +69,11 @@ h2 {
   border-radius: 3px;
 }
 
-input,
-select {
-  border-radius: 3px;
-  width: 100%;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  width: auto;
-}
-
-input[id="birth"]{
-  width: 50px;
-}
-
-/*div[class~="half"] {
-  float: left;
-}*/
-
-.input_half {
-  width: 50%;
-  padding: 10px;
-  float: left;
-}
-
-div.small {
-  padding: 0px 10px 0px 0px;
-}
-
-.input_full {
-    background-color: green;
-    width: 100%;
-    padding: 20px;
-}
-
 label {
+  display: inline-block;
   font-weight: strong;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .fontos {
