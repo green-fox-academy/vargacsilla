@@ -20,7 +20,6 @@ namespace exercise29
             int rowsNum = int.Parse(Console.ReadLine());
 
             string pyramidBody = "*";
-            char pyramidVoid = ' ';
 
             for (int i = rowsNum; i > 0; i--)
             {
