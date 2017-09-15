@@ -6,17 +6,29 @@ namespace guessmynumber
     {
         static void Main(string[] args)
         {
-            //ask for range
-            //get range
-            Console.WriteLine("Lets play a guessing game! How big should the range be?");
+            Console.WriteLine("Let's play a guessing game! How big should be the range?");
             int range = int.Parse(Console.ReadLine());
-            //generate a random number between 0 and range
+
             Random rnd = new Random();
             int theNumber = rnd.Next(range);
+            int lives = 10;
+
+            Console.WriteLine("Okay, now guess a number!");
+            int guess;
+
+            for (int i = lives; i > 0; lives--)
+            {
+                guess = int.Parse(Console.ReadLine());
+                if (guess > theNumber)
+                    Console.WriteLine("Too high. You have {0} lives left.", lives - 1);
+                if (guess < theNumber)
+                    Console.WriteLine("Too low. You have {0} lives left.", lives - 1);
+                if (guess == theNumber)
+                    Console.WriteLine("Congrats, you won!");
+            }
 
             Console.WriteLine(theNumber);
             Console.ReadLine();
-
         }
     }
 }
