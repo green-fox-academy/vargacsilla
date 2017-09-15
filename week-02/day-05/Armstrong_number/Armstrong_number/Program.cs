@@ -7,49 +7,52 @@ namespace Armstrong_number
     {
         static void Main(string[] args)
         {
-            // get number
-            int userNum = GetNumber();
-            // check if its armstrong
-            bool isArmstrong = IsItArmstrongNumber(userNum);
-            //// split number to digits
-            //// raise every digit to the nth power
-            //// add numbers together
+            Console.WriteLine("Give me a number and I will tell you if it is an Armstrong number.");
+            int userNum = int.Parse(Console.ReadLine());
+ 
+            if (IsItArmstrongNumber(userNum))
+                Console.WriteLine("{0} is an Armstrong number.", userNum);
+            else
+                Console.WriteLine("{0} is not an Armstrong number.", userNum);
 
-            Console.WriteLine(isArmstrong);
             Console.ReadLine();
         }
 
         private static bool IsItArmstrongNumber(int inputNum)
         {
-            bool isArmstrong;
-            List<int> digitsList = new List<int>();
+            List<double> digitsList = new List<double>();
 
             digitsList = SplitToDigits(inputNum);
+ 
+            for (int i = 0; i < digitsList.Count; i++)
+            {
+                digitsList[i] = Math.Pow(digitsList[i], digitsList.Count);
+            }
 
+            double sumDigitsOnNth = 0;
+            for (int i = 0; i < digitsList.Count; i++)
+            {
+                sumDigitsOnNth += digitsList[i];
+            } 
 
-        
+            bool isArmstrong = sumDigitsOnNth == inputNum;
+
             return isArmstrong;
         }
 
-        private static List<int> SplitToDigits(int inputNum)
+        private static List<double> SplitToDigits(int inputNum)
         {
-            List<int> digits = new List<int>();
+            List<double> digits = new List<double>();
 
-            for (int i = 0; inputNum >= 0; i++)
+            for (int i = 0; inputNum >= 1; i++)
             {
-                digits[i] = inputNum % 10;
+                digits.Add(inputNum % 10);
                 inputNum = inputNum / 10;
             };
 
             digits.Reverse();
 
             return digits;
-        }
-
-        public static int GetNumber()
-        {
-            int getNumber = int.Parse(Console.ReadLine());
-            return getNumber;
         }
     }
 }
