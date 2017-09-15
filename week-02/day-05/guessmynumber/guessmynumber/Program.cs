@@ -11,23 +11,39 @@ namespace guessmynumber
 
             Random rnd = new Random();
             int theNumber = rnd.Next(range);
-            int lives = 10;
+            int lives = 6;
 
             Console.WriteLine("Okay, now guess a number!");
             int guess;
+            bool didWin = false;
 
-            for (int i = lives; i > 0; lives--)
+            bool isGameOn = true; 
+
+            while (isGameOn)
             {
                 guess = int.Parse(Console.ReadLine());
+                isGameOn = lives > 0 && didWin == false;
                 if (guess > theNumber)
-                    Console.WriteLine("Too high. You have {0} lives left.", lives - 1);
+                {
+                    Console.WriteLine("Too high. You have {0} lives left.", lives);
+                    lives--;
+                }
                 if (guess < theNumber)
-                    Console.WriteLine("Too low. You have {0} lives left.", lives - 1);
+                {
+                    Console.WriteLine("Too low. You have {0} lives left.", lives);
+                    lives--;
+                }
                 if (guess == theNumber)
-                    Console.WriteLine("Congrats, you won!");
+                {
+                    didWin = true;
+                }
             }
 
-            Console.WriteLine(theNumber);
+            if (didWin)
+               Console.WriteLine("Congrats, you won!");
+            if (!didWin)
+                Console.WriteLine("Game over. The number was: {0}", theNumber);
+
             Console.ReadLine();
         }
     }
