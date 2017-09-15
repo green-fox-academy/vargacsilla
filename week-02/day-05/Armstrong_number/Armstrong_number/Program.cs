@@ -8,7 +8,7 @@ namespace Armstrong_number
         static void Main(string[] args)
         {
             Console.WriteLine("Give me a number and I will tell you if it is an Armstrong number.");
-            int userNum = int.Parse(Console.ReadLine());
+            int userNum = GetInput();
  
             if (IsItArmstrongNumber(userNum))
                 Console.WriteLine("{0} is an Armstrong number.", userNum);
@@ -18,26 +18,40 @@ namespace Armstrong_number
             Console.ReadLine();
         }
 
+        private static int GetInput()
+        {
+            int userInput = int.Parse(Console.ReadLine());
+
+            return userInput;
+        }
+
         private static bool IsItArmstrongNumber(int inputNum)
         {
-            List<double> digitsList = new List<double>();
+            List<double> digitsList = new List<double> (SplitToDigits(inputNum));
+            ToPowerOfCount(digitsList);
+            double sumDigitsOnNth = AddListItems(digitsList);
+            bool isArmstrong = sumDigitsOnNth == inputNum;
 
-            digitsList = SplitToDigits(inputNum);
- 
-            for (int i = 0; i < digitsList.Count; i++)
-            {
-                digitsList[i] = Math.Pow(digitsList[i], digitsList.Count);
-            }
+            return isArmstrong;
+        }
 
+        private static double AddListItems(List<double> digitsList)
+        {
             double sumDigitsOnNth = 0;
             for (int i = 0; i < digitsList.Count; i++)
             {
                 sumDigitsOnNth += digitsList[i];
-            } 
+            }
+            return sumDigitsOnNth;
+        }
 
-            bool isArmstrong = sumDigitsOnNth == inputNum;
-
-            return isArmstrong;
+        private static List<double> ToPowerOfCount(List<double> digitsList)
+        {
+            for (int i = 0; i < digitsList.Count; i++)
+            {
+                digitsList[i] = Math.Pow(digitsList[i], digitsList.Count);
+            }
+            return digitsList;
         }
 
         private static List<double> SplitToDigits(int inputNum)
