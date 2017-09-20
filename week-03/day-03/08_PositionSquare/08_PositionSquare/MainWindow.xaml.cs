@@ -16,8 +16,7 @@ using GreenFox;
 
 namespace _08_PositionSquare
 {
-
-    public partial class MainWindow : Window
+public partial class MainWindow : Window
     {
         public static Random rnd = new Random();
 
