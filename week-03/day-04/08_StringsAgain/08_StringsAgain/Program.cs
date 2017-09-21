@@ -4,27 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07_Strings
+namespace _08_StringsAgain
 {
     class Program
     {
         static void Main(string[] args)
         {
+            // Given a string, compute recursively a new string where all the 'x' chars have been removed.
             string s = "AXxBXxCXx";
-            Console.WriteLine(SwapXToY(s));
+            Console.WriteLine(DeleteX(s));
             Console.ReadLine();
         }
 
-        private static string SwapXToY(string s)
+        private static string DeleteX(string s)
         {
             if (s.Length == 0)
                 return s;
             else if (s[0] == 'x')
             {
-                return s = "y" + SwapXToY(s.Substring(1));
+                return s = DeleteX(s.Substring(1));
             }
             else
-                return s = s[0] + SwapXToY(s.Substring(1));
+                return s = s[0] + DeleteX(s.Substring(1));
 
         }
     }
