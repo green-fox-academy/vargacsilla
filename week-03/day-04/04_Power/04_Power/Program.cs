@@ -19,8 +19,7 @@ namespace _04_Power
             if (p == 0)
                 return 1;
             else
-                p--;
-            return n * ToThePower(n, p);
+                return n * ToThePower(n, p - 1);
         }
     }
 }
