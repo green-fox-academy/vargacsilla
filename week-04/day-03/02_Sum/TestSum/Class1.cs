@@ -44,7 +44,7 @@ namespace TestSum
         {
             List<int> input = null;
             int output = myClass.SumList(input);
-            int expected = 0;S
+            int expected = 0;
             Assert.AreEqual(expected, output);
         }
     }
