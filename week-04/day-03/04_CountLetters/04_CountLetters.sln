@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_CountLetters", "04_CountLetters\04_CountLetters.csproj", "{413D2A6F-17C9-44F8-9250-36E91E2BEE8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountLettersTest", "CountLettersTest\CountLettersTest.csproj", "{FF055BAD-5CEF-474F-BDBF-1D5C95CE802B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{413D2A6F-17C9-44F8-9250-36E91E2BEE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{413D2A6F-17C9-44F8-9250-36E91E2BEE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{413D2A6F-17C9-44F8-9250-36E91E2BEE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{413D2A6F-17C9-44F8-9250-36E91E2BEE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF055BAD-5CEF-474F-BDBF-1D5C95CE802B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF055BAD-5CEF-474F-BDBF-1D5C95CE802B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF055BAD-5CEF-474F-BDBF-1D5C95CE802B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF055BAD-5CEF-474F-BDBF-1D5C95CE802B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {579CFD2F-52AA-4FE1-9AA3-5771250AFE7A}
+	EndGlobalSection
+EndGlobal
