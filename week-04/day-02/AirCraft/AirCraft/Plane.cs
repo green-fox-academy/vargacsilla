@@ -25,9 +25,19 @@ namespace AirCraft
             return damage;
         }
 
-        public void Refill()
+        public int Refill(int plusAmmo)
         {
-
+            int leftoverAmmo = (currentAmmo + plusAmmo) - maxAmmo;
+            if (leftoverAmmo < 0)
+            {
+                currentAmmo = (currentAmmo + plusAmmo) % maxAmmo;
+                return 0;
+            }
+            else
+            {
+                currentAmmo = maxAmmo;
+                return leftoverAmmo;
+            }
         }
 
         public string GetPlaneType()
