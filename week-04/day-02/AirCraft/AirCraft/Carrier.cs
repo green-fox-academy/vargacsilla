@@ -11,8 +11,6 @@ namespace AirCraft
         List<Plane> planeList;
         int healthPoints;
         int ammoStore;
-        int currentAmmo = 0;
-        int aircraftCount;
 
         public Carrier(int ammoStore, int healthPoints)
         {
@@ -21,7 +19,7 @@ namespace AirCraft
             this.healthPoints = healthPoints;
         }
 
-        public void AddAircraft(string type)
+        public void AddPlane(string type)
         {
             if (type == "F16")
             {
@@ -31,6 +29,19 @@ namespace AirCraft
             {
                 planeList.Add(new F35());
             }
+        }
+
+        public int FillPlanes()
+        {
+            for (int i = 0; i < planeList.Count; i++)
+            {
+                ammoStore = planeList[i].Refill(ammoStore);
+                if (ammoStore <= 0)
+                {
+                    return ammoStore = 0;
+                }
+            }
+            return ammoStore;
         }
     }
 }

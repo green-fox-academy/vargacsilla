@@ -10,10 +10,11 @@ namespace AirCraft
     {
         static void Main(string[] args)
         {
-            var myCarrier = new Carrier(150, 500);
-            myCarrier.AddAircraft("F16");
-            myCarrier.AddAircraft("F16");
-            myCarrier.AddAircraft("F35");
+            var myCarrier = new Carrier(20, 500);
+            myCarrier.AddPlane("F16");
+            myCarrier.AddPlane("F16");
+            myCarrier.AddPlane("F35");
+            myCarrier.FillPlanes();
 
             Console.Read();
         }
