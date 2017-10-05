@@ -18,9 +18,11 @@ namespace AirCraft
             baseDamage = 40;
         }
 
-        public void Fight()
+        public int Fight()
         {
-
+            int damage = currentAmmo * baseDamage;
+            currentAmmo = 0;
+            return damage;
         }
 
         public void Refill()
@@ -30,8 +32,7 @@ namespace AirCraft
 
         public string GetPlaneType()
         {
-            string type = GetType().Name;
-            return type;
+            return GetType().Name;
         }
 
         public string GetStatus()
