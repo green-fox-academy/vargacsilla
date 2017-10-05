@@ -10,6 +10,11 @@ namespace AirCraft
     {
         static void Main(string[] args)
         {
+            var plane1 = new F16();
+            var plane2 = new F35();
+            Console.WriteLine(plane1.GetStatus());
+            Console.WriteLine(plane2.GetStatus());
+            Console.Read();
         }
     }
 }

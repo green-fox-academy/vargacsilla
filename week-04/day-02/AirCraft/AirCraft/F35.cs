@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace AirCraft
 {
-    class F35
+    class F35 : Plane
     {
+        public F35()
+        {
+            maxAmmo = 12;
+            baseDamage = 50;
+        }
     }
 }

@@ -8,15 +8,14 @@ namespace AirCraft
 {
     class Plane
     {
-        int maxAmmo;
-        int baseDamage;
-        int currentAmmo;
+        protected int maxAmmo;
+        protected int baseDamage;
+        protected int currentAmmo = 0;
 
         public Plane()
         {
             maxAmmo = 10;
             baseDamage = 40;
-            currentAmmo = 0;
         }
 
         public void Fight()
@@ -31,12 +30,15 @@ namespace AirCraft
 
         public string GetPlaneType()
         {
-            return "";
+            string type = GetType().Name;
+            return type;
         }
 
-        public string Getstatus()
+        public string GetStatus()
         {
-            return "";
+
+            string status = string.Format($"Type: {GetPlaneType()} | Ammo: {currentAmmo} | Base damage: {baseDamage} | All damage: {currentAmmo * baseDamage}");
+            return status;
         }
     }
 }
