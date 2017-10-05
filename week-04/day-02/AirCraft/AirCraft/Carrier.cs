@@ -33,6 +33,8 @@ namespace AirCraft
 
         public int FillPlanes()
         {
+            planeList = OrderPlaneList();
+            
             for (int i = 0; i < planeList.Count; i++)
             {
                 ammoStore = planeList[i].Refill(ammoStore);
@@ -42,6 +44,30 @@ namespace AirCraft
                 }
             }
             return ammoStore;
+        }
+
+        private List<Plane> OrderPlaneList()
+        {
+            var f35List = new List<Plane>();
+            var f16List = new List<Plane>();
+
+            foreach (var plane in planeList)
+            {
+                if (plane.GetPlaneType() == "F35")
+                {
+                    f35List.Add(plane);
+                }
+                else
+                {
+                    f16List.Add(plane);
+                }
+            }
+
+            var orderedPlaneList = new List<Plane>();
+            orderedPlaneList.AddRange(f35List);
+            orderedPlaneList.AddRange(f16List);
+
+            return orderedPlaneList;
         }
     }
 }
