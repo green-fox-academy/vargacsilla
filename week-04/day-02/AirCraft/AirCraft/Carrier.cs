@@ -33,17 +33,24 @@ namespace AirCraft
 
         public int FillPlanes()
         {
-            planeList = OrderPlaneList();
-            
-            for (int i = 0; i < planeList.Count; i++)
+            if (ammoStore == 0)
             {
-                ammoStore = planeList[i].Refill(ammoStore);
-                if (ammoStore <= 0)
-                {
-                    return ammoStore = 0;
-                }
+                throw new ArgumentException();
             }
-            return ammoStore;
+            else
+            {
+                planeList = OrderPlaneList();
+
+                for (int i = 0; i < planeList.Count; i++)
+                {
+                    ammoStore = planeList[i].Refill(ammoStore);
+                    if (ammoStore <= 0)
+                    {
+                        return ammoStore = 0;
+                    }
+                }
+                return ammoStore;
+            }
         }
 
         private List<Plane> OrderPlaneList()
