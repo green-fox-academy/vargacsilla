@@ -10,23 +10,26 @@ namespace TwentyPlusOne
     {
         static void Main(string[] args)
         {
-            var myDeck = new Deck();
-            myDeck.FillDeck();
-            Console.WriteLine(myDeck.cardList.Count());
-            myDeck.ShuffleDeck();
-            Console.WriteLine(myDeck.cardList.Count());
+            Game myGame = new Game();
+            myGame.StartGame();
 
-            foreach (var card in myDeck.cardList)
-            {
-                Console.WriteLine(card.suit + " - " + card.rank);
-            }
+            //var myDeck = new Deck();
+            //myDeck.FillDeck();
+            //Console.WriteLine(myDeck.cardList.Count());
+            //myDeck.ShuffleDeck();
+            //Console.WriteLine(myDeck.cardList.Count());
 
-            myDeck.PullFirst();
-            Console.WriteLine();
-            Console.WriteLine(myDeck.cardList.Count());
-            Console.WriteLine(myDeck.cardList[0].suit + " - " + myDeck.cardList[0].rank);
+            //foreach (var card in myDeck.cardList)
+            //{
+            //    Console.WriteLine(card.suit + " - " + card.rank);
+            //}
 
-            Console.Read();
+            //myDeck.PullFirst();
+            //Console.WriteLine();
+            //Console.WriteLine(myDeck.cardList.Count());
+            //Console.WriteLine(myDeck.cardList[0].suit + " - " + myDeck.cardList[0].rank);
+
+            //Console.Read();
         }
     }
 }
