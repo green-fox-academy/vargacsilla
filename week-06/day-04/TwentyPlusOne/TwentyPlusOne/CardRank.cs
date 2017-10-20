@@ -8,7 +8,7 @@ namespace TwentyPlusOne
 {
     public enum CardRank
     {
-        two = 2,
+        two,
         three,
         four,
         five,
