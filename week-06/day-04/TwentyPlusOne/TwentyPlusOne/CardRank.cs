@@ -8,7 +8,7 @@ namespace TwentyPlusOne
 {
     public enum CardRank
     {
-        two,
+        two,                            //TODO: 2től kezdje az értékadást
         three,
         four,
         five,

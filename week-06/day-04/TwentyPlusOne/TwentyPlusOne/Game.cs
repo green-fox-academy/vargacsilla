@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,21 +13,26 @@ namespace TwentyPlusOne
         int startingCardNumber = 2;
 
         public Deck myDeck = new Deck();
-        //public List<Player> players = new List<Player>();
-        Player Player = new Player();
-        Player Dealer = new Player();
-        
+        public List<Player> playerList = new List<Player>();
 
         public Game()
         {
             myDeck.FillDeck();
             myDeck.ShuffleDeck();
             SetUpPlayers();
-            PrintStatus(Dealer);
-            PrintStatus(Player);
+            PrintPlayerStatus(playerList[1]);
         }
 
-        private void PrintStatus(Player player)
+        private void PrintAllStatus()
+        {
+            foreach (var player in playerList)
+            {
+                PrintPlayerStatus(player);
+                Console.WriteLine();
+            }
+        }
+
+        private void PrintPlayerStatus(Player player)
         {
             Console.WriteLine($"{player.Name.ToUpper()}'s score: {player.Score}");
             Console.Write("Cards: ");
@@ -39,70 +45,81 @@ namespace TwentyPlusOne
 
         private void SetUpPlayers()
         {
-            GetPlayersName();
+            CreatePlayers();
+            GiveCardsToPlayers();
+        }
+
+        private void GiveCardsToPlayers()
+        {
             for (int i = 0; i < startingCardNumber; i++)
             {
-                Player.cards.Add(myDeck.PullRandom());
-                Player.Score += GetCardScore(Player.cards[i]);
-
-                Dealer.cards.Add(myDeck.PullRandom());
-                Dealer.Score += GetCardScore(Dealer.cards[i]);
+                foreach (var player in playerList)
+                {
+                    player.cards.Add(myDeck.PullRandom());
+                }
             }
         }
 
-        private void GetPlayersName()
+        private void CreatePlayers()
         {
-            Dealer.Name = "Dealer";
+            playerList.Add(new Player("Dealer"));
+
+            bool addOneMorePlayer = true;
+            while (addOneMorePlayer)
+            {
+                playerList.Add(new Player("Player"));
+                addOneMorePlayer = false;
+            }
+        }
+
+        private string GetPlayersName()
+        {
             Console.WriteLine("Enter your name:");
-            Player.Name = Console.ReadLine();
-            Console.Clear();
+            return Console.ReadLine();
         }
 
         public void StartGame()
         {
-            Console.WriteLine("Would you like to draw another card? [ENTER / X]");
+            Console.WriteLine($"{playerList[1].Name}, would you like to draw another card? [ENTER / X]");
             Console.WriteLine();
 
-            while (Console.ReadKey().Key == ConsoleKey.Enter && Player.Score < 21)
+            while (playerList[1].Score < 21 && Console.ReadKey().Key == ConsoleKey.Enter)
             {
+                GiveCardsToPlayers();
+
                 Console.Clear();
-                Card drawnCard = myDeck.PullFirst();
-                Player.cards.Add(drawnCard);
-                Player.Score += GetCardScore(drawnCard);
-                Console.WriteLine($"You have drawn a [{drawnCard.suit} {drawnCard.rank}]");
-                PrintStatus(Player);
+                PrintPlayerStatus(playerList[1]);
+                Console.WriteLine($"\nYou have drawn a [{playerList[1].cards.Last().suit} {playerList[1].cards.Last().rank}]");
+
                 Console.WriteLine();
+
                 Console.WriteLine("Would you like to draw another card? [ENTER / X]");
-                Console.WriteLine();
             }
-            if (Player.Score >= 21)
+
+            EvaluateEnding();
+        }
+
+        private void EvaluateEnding()
+        {
+            Console.Beep(2000, 1500);
+            Console.Clear();
+            if (playerList[1].Score > 21)
             {
-                Console.WriteLine("Game over.");
+                Console.WriteLine("GAME OVER.");
+            }
+            else if (playerList[0].Score == playerList[1].Score)
+            {
+                Console.WriteLine("Tie!");
+            }
+            else if (playerList[0].Score < playerList[1].Score)
+            {
+                Console.WriteLine("CONGRATS, you won!");
             }
             else
             {
-                Console.WriteLine("You quit the game, we dont know yet who won.");
+                Console.WriteLine("The Dealer won.");
             }
-            Console.Read();
-        }
-
-        public int GetCardScore(Card drawnCard)
-        {
-            int cardScore = (int)drawnCard.rank;
-
-            if (drawnCard.rank >= (CardRank)10 && drawnCard.rank < (CardRank)14)
-            {
-                cardScore = 10;
-            }
-            else if (drawnCard.rank == (CardRank)14 && Player.Score <= 10)              //TODO: akármelyik playerre legyen igaz!
-            {
-                cardScore = 11;
-            }
-            else if (drawnCard.rank == (CardRank)14 && Player.Score > 10)
-            {
-                cardScore = 1;
-            }
-            return cardScore;
+            PrintAllStatus();
         }
     }
 }

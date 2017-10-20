@@ -12,24 +12,7 @@ namespace TwentyPlusOne
         {
             Game myGame = new Game();
             myGame.StartGame();
-
-            //var myDeck = new Deck();
-            //myDeck.FillDeck();
-            //Console.WriteLine(myDeck.cardList.Count());
-            //myDeck.ShuffleDeck();
-            //Console.WriteLine(myDeck.cardList.Count());
-
-            //foreach (var card in myDeck.cardList)
-            //{
-            //    Console.WriteLine(card.suit + " - " + card.rank);
-            //}
-
-            //myDeck.PullFirst();
-            //Console.WriteLine();
-            //Console.WriteLine(myDeck.cardList.Count());
-            //Console.WriteLine(myDeck.cardList[0].suit + " - " + myDeck.cardList[0].rank);
-
-            //Console.Read();
+            Console.Read();
         }
     }
 }
