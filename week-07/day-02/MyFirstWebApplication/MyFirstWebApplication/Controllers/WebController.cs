@@ -11,12 +11,12 @@ namespace MyFirstWebApplication.Controllers
     public class WebController : Controller
     {
         [Route("greeting")]
-        public IActionResult Greeting()
+        public IActionResult Greeting(string name)
         {
             var greeting = new Greeting()
             {
-                Id = 1,
-                Content = "World"
+                Id = Models.Greeting.Counter++,
+                Content = name
             };
 
             return View(greeting);
