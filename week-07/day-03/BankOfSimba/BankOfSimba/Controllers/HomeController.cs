@@ -19,5 +19,17 @@ namespace BankOfSimba.Controllers
         {
             return View(new BankAccount("Simba", 2000, AnimalType.Lion));
         }
+
+        [Route("allAccounts")]
+        public IActionResult GetAllAccounts()
+        {
+            var allAccounts = new List<BankAccount>();
+            allAccounts.Add(new BankAccount("Rafiki", 10, AnimalType.Monkey));
+            allAccounts.Add(new BankAccount("Timon", 500, AnimalType.Surikata));
+            allAccounts.Add(new BankAccount("Pumpba", 3200, AnimalType.Pig));
+            allAccounts.Add(new BankAccount("Kovu", 15000, AnimalType.Lion));
+
+            return View(allAccounts);
+        }
     }
 }
