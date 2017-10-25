@@ -1,12 +1,12 @@
 ﻿@model BankOfSimba.Models.BankAccount
  
-    <html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title></title>
     </head>
     <body>
         <p>Bank account owner: @Model.Name</p>
-        <p>Balance: @Model.Balance</p>
+        <p>Balance: @(String.Format("{0:0.00}", Model.Balance)) @Model.Currency</p>
         <p>Animal type: @Model.AnimalType</p>
     </body>
 </html>
