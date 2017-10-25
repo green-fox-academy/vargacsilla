@@ -26,18 +26,18 @@
                     <p>is @(account.IsKing ? "" : "not") a king</p>
                 </td>
                 <td>
-                   @switch (account.GoodOrBad)
+                    @if (account.GoodOrBad == BankOfSimba.Models.GoodOrBad.BadGuy)
                     {
-                        case BankOfSimba.Models.GoodOrBad.GoodOne:
-                            <p> and a good one.</p>
-                            break;
-                        case BankOfSimba.Models.GoodOrBad.BadGuy:
-                            <p> and a bad guy.</p>
-                            break;
-                        case BankOfSimba.Models.GoodOrBad.Depends:
-                            <p> and depends on the situation if is good or bad.</p>
-                            break;
-                    }   
+                        <p> and a bad guy.</p>
+                    }
+                    else if (account.GoodOrBad == BankOfSimba.Models.GoodOrBad.GoodOne)
+                    {
+                        <p> and a good one.</p>
+                    }
+                    else if (account.GoodOrBad == BankOfSimba.Models.GoodOrBad.Depends)
+                    {
+                        <p> and depends on the situation if is good or bad.</p>
+                    }
                 </td>
             </tr>
         }
