@@ -15,7 +15,7 @@
                 <td>
                     @if (account.IsKing)
                     {
-                    <h1>@account.Name</h1>
+                    <h1 style="color: yellow">@account.Name</h1>
                     }
                     else
                     {
@@ -24,6 +24,20 @@
                 </td>
                 <td>
                     <p>is @(account.IsKing ? "" : "not") a king</p>
+                </td>
+                <td>
+                   @switch (account.GoodOrBad)
+                    {
+                        case BankOfSimba.Models.GoodOrBad.GoodOne:
+                            <p> and a good one.</p>
+                            break;
+                        case BankOfSimba.Models.GoodOrBad.BadGuy:
+                            <p> and a bad guy.</p>
+                            break;
+                        case BankOfSimba.Models.GoodOrBad.Depends:
+                            <p> and depends on the situation if is good or bad.</p>
+                            break;
+                    }   
                 </td>
             </tr>
         }

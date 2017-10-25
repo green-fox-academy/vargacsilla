@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace BankOfSimba.Models
 {
-    public enum AnimalType
+    public enum GoodOrBad
     {
-        Lion,
-        Pig,
-        Surikata,
-        Monkey,
-        Hyena
+        GoodOne,
+        BadGuy,
+        Depends
     }
 }
