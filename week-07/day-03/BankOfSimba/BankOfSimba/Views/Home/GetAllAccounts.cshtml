@@ -2,10 +2,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <link href="~/StyleSheet.css" rel="stylesheet" type="text/css" />
     <title></title>
 </head>
 <body>
-    <table>
+    <form>
+        <textarea>Add new:</textarea>
+        <button>Submit</button>
+    </form>
+
+    <table border="1" align="center">
         @foreach (var account in Model)
         {
             <tr>

@@ -1,0 +1,17 @@
+﻿body {
+}
+
+table {
+    background-color: cornflowerblue;
+    border-bottom-width: thin;
+    border-color: whitesmoke;
+}
+
+p {
+    font-size: small;
+}
+
+tr {
+    text-align: center;
+    vertical-align: central;
+}
