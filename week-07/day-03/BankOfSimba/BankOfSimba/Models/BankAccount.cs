@@ -11,13 +11,21 @@ namespace BankOfSimba.Models
         public decimal Balance { set; get; }
         public AnimalType AnimalType { set; get; }
         public string Currency { get; set; } = "Zebra";
+        public bool IsKing { get; set; } = false;
 
         public BankAccount(string name, decimal balance, AnimalType animalType)
         {
             Name = name;
             Balance = balance;
             AnimalType = animalType;
+        }
 
+        public BankAccount(string name, decimal balance, AnimalType animalType, bool isKing)
+        {
+            Name = name;
+            Balance = balance;
+            AnimalType = animalType;
+            IsKing = isKing;
         }
     }
 }

@@ -7,16 +7,23 @@
 <body>
     <table>
         @foreach (var account in Model)
-         {
-            <tr> 
+        {
+            <tr>
                 <td>
-                    @(Model.IndexOf(account) + 1)
+                    <p>@(Model.IndexOf(account)+1)</p>
                 </td>
                 <td>
-                   @account.Name  
+                    @if (account.IsKing)
+                    {
+                    <h1>@account.Name</h1>
+                    }
+                    else
+                    {
+                    <p>@account.Name</p>
+                    }
                 </td>
             </tr>
-         }
+        }
     </table>
 </body>
 </html>
