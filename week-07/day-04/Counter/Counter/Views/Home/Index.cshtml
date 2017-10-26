@@ -1,0 +1,14 @@
+﻿@model Counter.Models.ClickCounter
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @using (Html.BeginForm("action", "home"))
+    {
+        <p>@Model.ClickCount</p>
+        <p><input type="submit" value="Submit"/></p>
+    }
+</body>
+</html>
