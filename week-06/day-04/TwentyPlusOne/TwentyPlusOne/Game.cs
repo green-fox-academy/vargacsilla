@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TwentyPlusOne
 {
@@ -11,7 +8,7 @@ namespace TwentyPlusOne
     {
         Random random = new Random();
         int startingCardNumber = 2;
-
+        int maxScore = 21;
         public Deck myDeck = new Deck();
         public List<Player> playerList = new List<Player>();
 
@@ -38,7 +35,7 @@ namespace TwentyPlusOne
             Console.Write("Cards: ");
             foreach (var card in player.cards)
             {
-                Console.Write($"[{card.suit} - {card.rank}] ");
+                Console.Write($"[{card.Suit} - {card.Rank}] ");
             }
             Console.WriteLine();
         }
@@ -55,7 +52,7 @@ namespace TwentyPlusOne
             {
                 foreach (var player in playerList)
                 {
-                    player.cards.Add(myDeck.PullRandom());
+                    player.cards.Add(myDeck.Pull());
                 }
             }
         }
@@ -89,7 +86,7 @@ namespace TwentyPlusOne
 
                 Console.Clear();
                 PrintPlayerStatus(playerList[1]);
-                Console.WriteLine($"\nYou have drawn a [{playerList[1].cards.Last().suit} {playerList[1].cards.Last().rank}]");
+                Console.WriteLine($"\nYou have drawn a [{playerList[1].cards.Last().Suit} {playerList[1].cards.Last().Rank}]");
 
                 Console.WriteLine();
 
@@ -101,10 +98,10 @@ namespace TwentyPlusOne
 
         private void EvaluateEnding()
         {
-            Console.Beep(2000, 1500);
             Console.Clear();
-            if (playerList[1].Score > 21)
+            if (playerList[1].Score > maxScore)
             {
+                Console.Beep(2000, 1500);
                 Console.WriteLine("GAME OVER.");
             }
             else if (playerList[0].Score == playerList[1].Score)
@@ -119,7 +116,6 @@ namespace TwentyPlusOne
             {
                 Console.WriteLine("The Dealer won.");
             }
-            PrintAllStatus();
         }
     }
 }
