@@ -9,15 +9,26 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TodoApp.Entities;
 using TodoApp.Repositories;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace TodoApp
 {
     public class Startup
     {
+        public static IConfigurationRoot Configuration { get; set; }
+
         public void ConfigureServices(IServiceCollection services)
         {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            Configuration = builder.Build();
+
             services.AddMvc();
-            //services.AddDbContext<TodoContext>();
+            services.AddDbContext<TodoContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:TodoConnection"]));
             services.AddScoped<TodoRepository>();
         }
 

@@ -7,9 +7,9 @@ namespace TodoApp.Models
 {
     public class Todo
     {
-        int Id { get; set; }
-        string Title { get; set; }
-        bool IsUrgent { get; set; } = false;
-        bool IsDone { get; set; } = false;
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public bool IsUrgent { get; set; } = false;
+        public bool IsDone { get; set; } = false;
     }
 }
