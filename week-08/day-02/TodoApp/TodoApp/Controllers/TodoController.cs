@@ -21,7 +21,7 @@ namespace TodoApp.Controllers
         [Route("list")]
         public IActionResult List()
         {
-            return View("List", "This is my first todo");
+            return View(TodoRepository.GetTodos());
         }
     }
 }
