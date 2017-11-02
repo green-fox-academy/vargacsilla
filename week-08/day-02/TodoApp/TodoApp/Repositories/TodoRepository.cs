@@ -20,5 +20,29 @@ namespace TodoApp.Repositories
         {
             return TodoContext.Todos.ToList();
         }
+
+        public List<Todo> GetActives(bool isActive)
+        {
+            if (isActive)
+            {
+                var activeTodos = from todo in GetTodos()
+                                  where todo.IsDone == false
+                                  select todo;
+                return activeTodos.ToList();
+            }
+            else
+            {
+                var activeTodos = from todo in GetTodos()
+                                  where todo.IsDone == true
+                                  select todo;
+                return activeTodos.ToList();
+            }
+        }
+
+        public void Add(Todo newTodo)
+        {
+            TodoContext.Add(newTodo);
+            TodoContext.SaveChanges();
+        }
     }
 }

@@ -1,0 +1,16 @@
+﻿@model TodoApp.Models.Todo
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Add Todo</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(todo => todo.Title) @Html.TextBoxFor(todo => todo.Title)
+        @Html.LabelFor(todo => todo.IsUrgent) @Html.CheckBoxFor(todo => todo.IsUrgent)
+        <button type="submit" value="Submit">Add to the list!</button>
+    }
+</body>
+</html>
+
+
