@@ -6,8 +6,8 @@
 <body>
     @using (Html.BeginForm())
     {
-        @Html.LabelFor(todo => todo.Title) @Html.TextBoxFor(todo => todo.Title)
-        @Html.LabelFor(todo => todo.IsUrgent) @Html.CheckBoxFor(todo => todo.IsUrgent)
+        <text> @Html.LabelFor(todo => todo.Title) </text> <span>@Html.TextBoxFor(todo => todo.Title)</span> <br />
+        <text> @Html.LabelFor(todo => todo.IsUrgent) </text> <span> @Html.CheckBoxFor(todo => todo.IsUrgent)</span> <br />
         <button type="submit" value="Submit">Add to the list!</button>
     }
 </body>

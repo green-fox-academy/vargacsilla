@@ -13,7 +13,6 @@ namespace TodoApp.Entities
 
         public TodoContext(DbContextOptions<TodoContext> options) : base(options)
         {
-
         }
     }
 }

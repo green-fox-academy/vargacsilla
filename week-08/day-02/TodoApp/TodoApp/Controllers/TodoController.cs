@@ -25,7 +25,7 @@ namespace TodoApp.Controllers
         }
 
         [Route("list/isActive")]
-        public IActionResult List(bool isActive)
+        public IActionResult IsActive(bool isActive)
         {
             return View("List", TodoRepository.GetActives(isActive));
         }
@@ -42,6 +42,29 @@ namespace TodoApp.Controllers
         public IActionResult Add(Todo todoFromForm)
         {
             TodoRepository.Add(todoFromForm);
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        [Route("{id}/delete")]
+        public IActionResult Delete(int id)
+        {
+           TodoRepository.Remove(id);
+           return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        [Route("{id}/edit")]
+        public IActionResult Edit(int id)
+        {
+            return View("Edit", TodoRepository.GetTodo(id));
+        }
+
+        [HttpPost]
+        [Route("{id}/edit")]
+        public IActionResult Edit(Todo updatedTodo)
+        {
+            TodoRepository.Edit(updatedTodo);
             return RedirectToAction("List");
         }
     }

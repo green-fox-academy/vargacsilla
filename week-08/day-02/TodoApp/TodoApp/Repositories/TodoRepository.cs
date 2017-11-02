@@ -26,14 +26,14 @@ namespace TodoApp.Repositories
             if (isActive)
             {
                 var activeTodos = from todo in GetTodos()
-                                  where todo.IsDone == false
+                                  where todo.IsDone == true
                                   select todo;
                 return activeTodos.ToList();
             }
             else
             {
                 var activeTodos = from todo in GetTodos()
-                                  where todo.IsDone == true
+                                  where todo.IsDone == false
                                   select todo;
                 return activeTodos.ToList();
             }
@@ -42,6 +42,25 @@ namespace TodoApp.Repositories
         public void Add(Todo newTodo)
         {
             TodoContext.Add(newTodo);
+            TodoContext.SaveChanges();
+        }
+
+        public void Remove(int Id)
+        {
+            var removeableTodo = TodoContext.Todos.Where(t => t.Id == Id).FirstOrDefault();
+            TodoContext.Todos.Remove(removeableTodo);
+            TodoContext.SaveChanges();
+        }
+
+        internal Todo GetTodo(int id)
+        {
+            var todoToFind = TodoContext.Todos.Where(t => t.Id == id).FirstOrDefault();
+            return todoToFind;
+        }
+
+        public void Edit(Todo updatedTodo)
+        {
+            TodoContext.Todos.Update(updatedTodo);
             TodoContext.SaveChanges();
         }
     }
