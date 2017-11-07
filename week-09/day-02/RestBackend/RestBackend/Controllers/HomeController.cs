@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RestBackend.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -43,15 +44,42 @@ namespace RestBackend.Controllers
         }
 
         [HttpGet]
+        [Route("/appenda")]
         [Route("/appenda/{appendable}")]
         public IActionResult AppendA(string appendable)
         {
-            if (appendable == null)
+            if (String.IsNullOrEmpty(appendable))
             {
-                return NotFound();
+                return (IActionResult)NotFound();
             }
             return Json(new { appended = appendable + "a" });
         }
 
+        [HttpPost]
+        [Route("/dountil")]
+        [Route("/dountil/{what}")]
+        public IActionResult DoUntil(string what, [FromBody]Number number)
+        {
+            if (String.IsNullOrEmpty(what))
+            {
+                return Json(new { error = "Please provide an operation!" });
+            }
+            if (number == null || number.Until == null)
+            {
+                return Json(new { error = "Please provide a number!" });
+            }
+            if (what == "sum")
+            {
+                return Json( new { result = number.Sum()});
+            }
+            if (what == "factor")
+            {
+                return Json(new { result = number.Factor()});
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }
