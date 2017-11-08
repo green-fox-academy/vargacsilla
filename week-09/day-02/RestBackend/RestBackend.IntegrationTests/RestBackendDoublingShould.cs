@@ -1,10 +1,9 @@
-using System;
-using System.Net.Http;
-using Xunit;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using System.Threading.Tasks;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace RestBackend.IntegrationTests
 {

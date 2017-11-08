@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace RestBackend.IntegrationTests
 {
-    class RestBackendGreeterShould
+    public class RestBackendGreeterShould
     {
         private TestServer Server;
         private HttpClient Client;
@@ -22,7 +19,7 @@ namespace RestBackend.IntegrationTests
         }
 
         [Fact]
-        public async Task Return()
+        public async Task ReturnOk()
         {
             var response = await Client.GetAsync("greeter");
 
@@ -39,12 +36,12 @@ namespace RestBackend.IntegrationTests
         }
 
         [Fact]
-        public async Task ReturnWelcomeMesssage()
+        public async Task ReturnWelcomeMessage()
         {
-            var response = await Client.GetAsync("greeter?name=Csicsi%title=queen");
+            var response = await Client.GetAsync("greeter?name=Csicsi&title=queen");
             var responseMessage = await response.Content.ReadAsStringAsync();
 
-            Assert.True(responseMessage.Contains("Welcome_message"));
+            Assert.True(responseMessage.Contains("welcome_message"));
         }
     }
 }
