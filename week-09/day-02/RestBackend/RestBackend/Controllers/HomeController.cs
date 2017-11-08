@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RestBackend.Models;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace RestBackend.Controllers
 {
     public class HomeController : Controller
@@ -80,6 +78,39 @@ namespace RestBackend.Controllers
             {
                 return NotFound();
             }
+        }
+
+        [HttpPost]
+        [Route("arrays")]
+        public IActionResult Arrays([FromBody]Arrays input)
+        {
+            if (input == null)
+            {
+                return Json(new { error = "Please provide numbers and what to do with them!" });
+            }
+            if (input.What == null)
+            {
+                return Json(new { error = "Please provide what to do with the numbers!" });
+            }
+            if (input.Numbers == null || input.Numbers.Length == 0)
+            {
+                return Json(new { error = "Please provide numbers!" });
+            }
+
+            if (input.What == Models.Math.sum)
+            {
+                return Json(new { result = input.Sum() });
+            }
+            if (input.What == Models.Math.multiply)
+            {
+                return Json(new { result = input.Multiply() });
+            }
+            if (input.What == Models.Math.@double)
+            {
+                return Json(new { result = input.Double() });
+            }
+            else
+                return NotFound();
         }
     }
 }

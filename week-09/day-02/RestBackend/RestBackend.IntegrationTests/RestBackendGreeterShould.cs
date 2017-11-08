@@ -22,12 +22,29 @@ namespace RestBackend.IntegrationTests
         }
 
         [Fact]
-        public async Task ReturnOkStatus()
+        public async Task Return()
+        {
+            var response = await Client.GetAsync("greeter");
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task ReturnErrorMessage_WithoutInput()
         {
             var response = await Client.GetAsync("greeter");
             var responseMessage = await response.Content.ReadAsStringAsync();
 
             Assert.True(responseMessage.Contains("error"));
+        }
+
+        [Fact]
+        public async Task ReturnWelcomeMesssage()
+        {
+            var response = await Client.GetAsync("greeter?name=Csicsi%title=queen");
+            var responseMessage = await response.Content.ReadAsStringAsync();
+
+            Assert.True(responseMessage.Contains("Welcome_message"));
         }
     }
 }
