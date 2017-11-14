@@ -1,0 +1,30 @@
+﻿@model List<TodoApp.Models.Todo>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>My Todo's:</h1>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Task</td>
+            <td>Description</td>
+            <td>Done</td>
+            <td>Urgent</td>
+        </tr>
+        @foreach (var todo in Model)
+        {
+            <tr>
+                <td>@todo.Id</td>
+                <td>@todo.Title</td>
+                <td>@todo.IsDone</td>
+                <td>@todo.</td>
+                <td><a href="@todo.Id/edit">[edit]</a></td>
+                <td><a href="@todo.Id/delete">[delete]</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

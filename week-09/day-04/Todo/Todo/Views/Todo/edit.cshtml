@@ -1,0 +1,33 @@
+﻿@model TodoApp.Models.Todo
+@{
+    Layout = "_Layout";
+}
+
+    @using (Html.BeginForm())
+    {
+        <h1>Editing a Todo</h1>
+        <form action="@Model.Id/edit" method="post">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Details</th>
+                        <th>Deadline</th>
+                        <th>Done</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td> @Html.TextBoxFor(todo => todo.Title)</td>
+                    <td> @Html.TextBoxFor(todo => todo.Details)</td>
+                    <td><input type="date" id="Deadline" name="Deadline" value="@Model.Deadline" /></td>
+                    <td> @Html.CheckBoxFor(todo => todo.IsDone)</td>
+                </tr>
+            </table>
+            <button type="submit">Modify</button>
+        </form>
+        <p><a href="/">Back to the Todo list</a></p>
+    }
+
+
+

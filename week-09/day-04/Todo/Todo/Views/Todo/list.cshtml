@@ -1,0 +1,60 @@
+﻿@model TodoApp.ViewModels.ListTodosViewModel
+@{ 
+    Layout = "_Layout";
+}
+<body>
+    <div class="container">
+        <h1>My Todos:</h1>
+    
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Task</th>
+                    <th>Description</th>
+                    <th>Deadline</th>
+                    <th>State</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var todo in Model.Todos)
+            {
+                <tr>
+                    <td>@todo.Id</td>
+                    <td>@todo.Title</td>
+                    <td>@todo.Details</td>
+                    <td>@todo.Deadline.ToString("yyyy. MMMM dd.")</td>
+                    <td>
+                        @{if (todo.IsDone)
+                        {
+                            <img src="~/done.png" alt="done" height="30" width="30" />
+                        }
+                        else if (Model.TodoService.DaysLeft(todo) < 0)
+                        {
+                            <img src="~/late.png" alt="late" height="30" width="30" />
+                        }
+                        else if (Model.TodoService.DaysLeft(todo) >= 0 && todo.IsDone)
+                        {
+                            <p>@Model.TodoService.DaysLeft(todo) days left</p>
+                        }
+                    }
+                </td>
+                <td>
+                    <a href="@todo.Id/edit" class="btn btn-xs btn-default" role="button">edit</a>
+                </td>
+                <td><a href="@todo.Id/delete" class="btn btn-xs btn-danger" role="button">delete</a></td>
+            </tr>
+                        }
+            <tr>
+                <td></td>
+                <td><a href="/add" class="btn btn-lg btn-default" role="button">Add new todo</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="active" class="btn btn-lg btn-default">Show actives</a></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>

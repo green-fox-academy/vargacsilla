@@ -1,0 +1,29 @@
+﻿@model TodoApp.Models.Todo
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Add Todo</title>
+</head>
+<body>
+
+    <form action="/add" method="post">
+        <table>
+            <tr>
+                <td>Title</td>
+                <td>Details</td>
+                <td>Deadline</td>
+                <td>Done</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="Title" name="Title" /></td>
+                <td><input type="text" id="Detalis" name="Details" /></td>
+                <td><input type="date" id="Deadline" name="Deadline" /></td>
+                <td><input type="checkbox" id="IsDone" name="IsDone" /></td>
+            </tr>
+        </table>
+            <button type="submit">Add Todo</button>
+    </form>
+    <p><a href="list">Back to the Todo list</a></p>
+</body>
+</html>
+
+
