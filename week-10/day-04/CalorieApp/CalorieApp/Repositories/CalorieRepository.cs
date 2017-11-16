@@ -40,5 +40,12 @@ namespace CalorieApp.Repositories
             CalorieContext.Foods.Remove(foodToRemove);
             CalorieContext.SaveChanges();
         }
+
+        internal void EditAmount(int newAmount, string name)
+        {
+            var foodToEdit = CalorieContext.Foods.Where(x => x.Name == name).FirstOrDefault();
+            foodToEdit.Amount = newAmount;
+            CalorieContext.SaveChanges();
+        }
     }
 }

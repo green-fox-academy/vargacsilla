@@ -36,7 +36,7 @@ namespace CalorieApp.Controllers
             }
             else
             {
-                return Json(new { respose = "error" });
+                return Json(new { response = "error" });
             }
         }
 
@@ -46,6 +46,14 @@ namespace CalorieApp.Controllers
         public IActionResult RemoveFoodById(int id)
         {
             CalorieRepository.RemoveFoodById(id);
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("edit")]
+        public IActionResult EditFoodAmount([FromBody]AmountEditor amountEditor)
+        {
+            CalorieRepository.EditAmount(amountEditor.Amount, amountEditor.Name);
             return Ok();
         }
     }
