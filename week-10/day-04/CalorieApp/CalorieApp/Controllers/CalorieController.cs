@@ -12,7 +12,7 @@ namespace CalorieApp.Controllers
         [HttpGet]
         public IActionResult CalorieTable()
         {
-            return Ok();
+            return 
         }
     }
 }

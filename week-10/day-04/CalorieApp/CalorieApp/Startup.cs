@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using CalorieApp.Entities;
 using Microsoft.EntityFrameworkCore;
+using CalorieApp.Repositories;
 
 namespace CalorieApp
 {
@@ -28,6 +29,7 @@ namespace CalorieApp
 
             services.AddDbContext<CalorieContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:CalorieConnection"]));
 
+            services.AddScoped<CalorieRepository>();
             services.AddMvc();
         }
 
