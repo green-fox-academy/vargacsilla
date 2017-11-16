@@ -6,13 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CalorieApp.Controllers
 {
-    [Route("api/[controller]")]
     public class CalorieController : Controller
     {
-        [HttpGet]
-        public IActionResult CalorieTable()
+        public IActionResult Index()
         {
-            return 
+            return View();
         }
     }
 }
