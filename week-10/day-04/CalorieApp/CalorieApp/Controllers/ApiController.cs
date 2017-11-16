@@ -54,7 +54,7 @@ namespace CalorieApp.Controllers
         public IActionResult EditFoodAmount([FromBody]AmountEditor amountEditor)
         {
             CalorieRepository.EditAmount(amountEditor.Amount, amountEditor.Name);
-            return Ok();
+            return Json(CalorieRepository.FindFoodByName(amountEditor.Name));
         }
     }
 }

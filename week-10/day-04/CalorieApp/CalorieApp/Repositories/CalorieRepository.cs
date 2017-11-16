@@ -47,5 +47,15 @@ namespace CalorieApp.Repositories
             foodToEdit.Amount = newAmount;
             CalorieContext.SaveChanges();
         }
+
+        internal Food FindFoodByName(string name)
+        {
+            return CalorieContext.Foods.Where(x => x.Name == name).FirstOrDefault();
+        }
+
+        internal Food FindFoodById(int id)
+        {
+            return CalorieContext.Foods.Where(x => x.Id == id).FirstOrDefault();
+        }
     }
 }
